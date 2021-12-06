@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'd+xt$out(j=iiotv*&v)n^0w(9ig!rfw7frhv@e5=vq68f+3ni'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True  
 
 ALLOWED_HOSTS = ['192.168.56.101', 'localhost', '127.0.0.1']	# shkim
 

@@ -21,10 +21,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-_-mmz+e_uuh-(87iq650$lh((x+1nq7n@v#b5wznw(8n(w0*ld'
+# SECRET_KEY = 'django-insecure-_-mmz+e_uuh-(87iq650$lh((x+1nq7n@v#b5wznw(8n(w0*ld'
+# 변경
+with open(os.path.join(BASE_DIR, 'www_dir', 'secret_key.txt')) as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False   # 변경
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['192.168.18.163', 'localhost', '127.0.0.1']    # 변경
@@ -40,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls.apps.PollsConfig',		# 추가
-    'books.apps.BooksConfig',		# 추가
+    # 'books.apps.BooksConfig',		# 추가
+    'books',    # 추가
 ]
 
 MIDDLEWARE = [
@@ -128,6 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'www_dir', 'static')   # 추가
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -136,7 +142,7 @@ STATIC_URL = '/static/'
 
 
 #########################################
-# modify by wonlee, 2021-11-12
+# modified by maxlee
 # logging
-
+SECURE_HSTS_SECONDS = 31536000
 #########################################
