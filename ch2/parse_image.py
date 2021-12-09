@@ -27,6 +27,7 @@ def main():
         charset = f.info().get_param('charset')
         data = f.read().decode(charset)
 
+    print(data)
     dataSet = parse_image(data)
     print("\n>>>>>>>>> Fetch Images from", url)
     print('\n'.join(sorted(dataSet)))
