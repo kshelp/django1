@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls.apps.PollsConfig',		# 추가
+<<<<<<< HEAD
+=======
+    'books.apps.BooksConfig'    # 추가
+>>>>>>> origin/master
 ]
 
 MIDDLEWARE = [
@@ -109,7 +113,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
+<<<<<<< HEAD
 TIME_ZONE = 'UTC'
+=======
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'	# 변경
+>>>>>>> origin/master
 
 USE_I18N = True
 

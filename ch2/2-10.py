@@ -8,6 +8,9 @@ params = urlencode({
     'name': '김석훈',
     'email': 'shkim@naver.com',
 })
+
+print(params)
+
 headers = {
     'Content-Type': 'application/x-www-form-urlencoded',
     'Accept': 'text/plain',
