@@ -4,10 +4,13 @@ from django.urls import reverse
 
 from polls.models import Choice, Question
 
-
+# 함수형 뷰
 def index(request):
-    latest_question_list = Question.objects.all().order_by('-pub_date')[:5]
-    context = {'latest_question_list': latest_question_list}
+    if request.method == "GET":
+        latest_question_list = Question.objects.all().order_by('-pub_date')[:5]
+        context = {'latest_question_list': latest_question_list}
+    else:
+        pass
     return render(request, 'polls/index.html', context)
 
 def detail(request, question_id):
