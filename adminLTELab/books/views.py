@@ -16,7 +16,7 @@ class BooksModelView(TemplateView):
 
 #--- ListView
 # Book 테이블로부터 모든 레코드를 가져와 object_list라는 컨텍스트 변수를 구성한다.
-# 템플싯 파일은 디폴트로 books/book_list.html 파일이 된다.
+# 템플릿 파일은 디폴트로 books/book_list.html 파일이 된다.
 class BookList(ListView):
     model = Book
 
