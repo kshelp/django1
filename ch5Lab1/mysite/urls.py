@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 # from django.urls import path
 from django.urls import path, include
+from mysite import views # 추가
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')), # 추가
     path('books/', include('books.urls')),
+    path('', views.HomeView.as_view(), name='home'), # 추가
 ]
