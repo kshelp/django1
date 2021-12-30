@@ -1,22 +1,18 @@
-from rest_framework import status
+from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
+
 from .serializers import UserSerializer
 from .models import User
 
-# from rest_framework.views import APIView
-from rest_framework import generics
 
-
-# class UserView(APIView):
-class UserView(generics.ListCreateAPIView):
-
-    # GET /api/user/
+class UserView(APIView):
     # GET /api/user/{pk}
     def get(self, request,  **kwargs):
         if kwargs.get('pk') is None:
-            user_queryset = User.objects.all()  # 모든 User의 정보를 불러온다.
-            user_queryset_serializer = UserSerializer(user_queryset, many=True)
-            return Response(user_queryset_serializer.data, status=status.HTTP_200_OK)
+            queryset = User.objects.all()
+            serializer_class = UserSerializer(queryset, many=True)
+            return Response(serializer_class.data, status=status.HTTP_200_OK)
         else:
             pk = kwargs.get('pk')
             user_serializer = UserSerializer(
@@ -42,14 +38,14 @@ class UserView(generics.ListCreateAPIView):
         else:
             pk = kwargs.get('pk')
             user_object = User.objects.get(id=pk)
- 
-            update_user_serializer = UserSerializer(user_object, data=request.data)
+
+            update_user_serializer = UserSerializer(
+                user_object, data=request.data)
             if update_user_serializer.is_valid():
                 update_user_serializer.save()
                 return Response(update_user_serializer.data, status=status.HTTP_200_OK)
             else:
                 return Response("invalid request", status=status.HTTP_400_BAD_REQUEST)
-
 
     # DELETE /api/user/{pk}
     def delete(self, request, **kwargs):

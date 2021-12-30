@@ -145,5 +145,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'www_dir', 'static')   # 추가
 #########################################
 # modified by maxlee
 # logging
-
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        # enables simple command line authentication
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 #########################################
