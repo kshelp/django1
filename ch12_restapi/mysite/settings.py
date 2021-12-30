@@ -143,8 +143,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'www_dir', 'static')   # 추가
 
 
 #########################################
-# modified by maxlee
-# logging
+# 추가
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
