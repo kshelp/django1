@@ -31,7 +31,7 @@ DEBUG = True   # 변경
 
 # ALLOWED_HOSTS = []
 # ALLOWED_HOSTS = ['192.168.18.129', 'localhost', '127.0.0.1']    # 변경
-ALLOWED_HOSTS = '*'
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'books',                        # 추가
     'rest_framework',               # 추가
     'rest_framework.authtoken',     # 추가
-    'api_user',                     # 추가
+    'user',                         # 추가
 ]
 
 MIDDLEWARE = [
